@@ -21,23 +21,14 @@ body, html {
     box-sizing: border-box;
 }
 
-/* Tampilan Layar 1 (Cover) */
+/* Tampilan Layar 1 (Cover) - TIDAK BERUBAH */
 #cover {
     flex-direction: column;
     padding: 20px;
     background-color: #11320a; 
 }
-
-#cover p {
-    font-size: 1.1em;
-}
-
-#guestName {
-    font-size: 2em;
-    margin: 10px 0;
-    color: #ffd700; /* Warna emas */
-}
-
+#cover p { font-size: 1.1em; }
+#guestName { font-size: 2em; margin: 10px 0; color: #ffd700; }
 #openButton {
     padding: 12px 25px;
     font-size: 1em;
@@ -50,121 +41,137 @@ body, html {
     margin-top: 20px;
     transition: background-color 0.3s;
 }
+#openButton:hover { background-color: #fff; }
 
-#openButton:hover {
-    background-color: #fff;
-}
-
-/* Kode untuk ikon amplop */
+/* Ikon Amplop - TIDAK BERUBAH */
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
     40% { transform: translateY(-25px); }
     60% { transform: translateY(-15px); }
 }
+.icon-container { margin-bottom: 20px; animation: bounce 2s infinite; }
+.envelope-icon { width: 70px; height: 70px; stroke: #FFFFFF; }
 
-.icon-container {
-    margin-bottom: 20px;
-    animation: bounce 2s infinite;
-}
 
-.envelope-icon {
-    width: 70px;
-    height: 70px;
-    stroke: #FFFFFF;
-}
+/* ===== STYLE BARU UNTUK LAYAR 2 (HASIL KONVERSI PDF) ===== */
 
-/* Tampilan Layar 2 (Isi Undangan) */
 #invitation {
     background-color: #000; /* Latar belakang hitam */
-    position: relative;
-    overflow: hidden;
+    display: block; /* Agar bisa di-scroll */
+    height: 100vh;
+    padding: 0;
 }
 
-/* Wadah untuk gambar dan bingkai agar responsif dan terpusat */
-.invitation-content-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Kontainer untuk scroll */
+.scroll-container {
     width: 100%;
     height: 100%;
+    overflow-y: auto; /* Aktifkan scroll vertikal */
+    padding: 40px 20px; /* Jarak atas-bawah dan kiri-kanan */
+    box-sizing: border-box;
 }
 
-#mainImage {
-    max-width: 100%;
-    max-height: 100vh;
-    object-fit: contain;
-    position: relative; /* Penting untuk z-index */
-    z-index: 1; /* Agar gambar di bawah bingkai */
+/* Style untuk Bismillah */
+.bismillah {
+    font-family: 'Scheherazade New', serif;
+    font-size: 2.5em; /* Lebih besar */
+    color: #ffd700; /* Emas */
+    margin: 0;
 }
 
-/* ===== KODE BARU UNTUK BINGKAI FOTO DAN ANIMASI ===== */
-
-.frame-border {
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* Lebar dan Tinggi akan diatur oleh JavaScript */
-    pointer-events: none; /* Agar tidak menghalangi interaksi */
-    z-index: 2; /* Agar bingkai di atas gambar */
-    opacity: 0; /* Awalnya tersembunyi */
-    transition: opacity 0.5s ease-out; /* Animasi fade-in */
+/* Judul Utama */
+.main-title {
+    font-size: 2.2em;
+    color: #FFFFFF;
+    margin: 0 0 20px 0;
 }
 
-.frame-border.active {
-    opacity: 1; /* Tampilkan saat aktif */
+/* Paragraf pembuka */
+.intro-paragraph {
+    font-size: 1.1em;
+    color: #ddd;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
 }
 
-.frame-line {
-    position: absolute;
-    background-color: #ffd700; /* Warna emas untuk bingkai */
-    /* Akan diatur ukurannya oleh JS */
-    border-radius: 1px;
+/* Kontainer 2 foto haul */
+.haul-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap; /* Agar stack di HP */
+    margin-bottom: 40px;
 }
 
-/* Animasi untuk garis-garis bingkai */
-@keyframes draw-top {
-    0% { width: 0; }
-    100% { /* width akan diatur oleh JS */ }
-}
-@keyframes draw-right {
-    0% { height: 0; }
-    100% { /* height akan diatur oleh JS */ }
-}
-@keyframes draw-bottom {
-    0% { width: 0; }
-    100% { /* width akan diatur oleh JS */ }
-}
-@keyframes draw-left {
-    0% { height: 0; }
-    100% { /* height akan diatur oleh JS */ }
+/* Kartu untuk tiap foto */
+.haul-card {
+    width: 220px; /* Lebar kartu */
 }
 
-/* Penempatan garis */
-.frame-line.top {
-    top: -5px; /* Sedikit keluar dari gambar */
-    left: 0;
-    height: 3px;
-    animation: draw-top 1s ease-out forwards;
+.haul-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Bulat sempurna */
+    border: 4px solid #ffd700; /* Bingkai emas */
+    object-fit: cover; /* Pastikan foto pas */
 }
-.frame-line.right {
-    top: 0;
-    right: -5px; /* Sedikit keluar dari gambar */
-    width: 3px;
-    animation: draw-right 1s ease-out forwards;
-    animation-delay: 1s; /* Mulai setelah top */
+
+.haul-card h3 {
+    color: #ffd700;
+    font-size: 1.4em;
+    margin: 10px 0 5px 0;
 }
-.frame-line.bottom {
-    bottom: -5px; /* Sedikit keluar dari gambar */
-    left: 0;
-    height: 3px;
-    animation: draw-bottom 1s ease-out forwards;
-    animation-delay: 2s; /* Mulai setelah right */
+
+.haul-card p {
+    color: #FFFFFF;
+    font-size: 1.1em;
+    margin: 0;
 }
-.frame-line.left {
-    top: 0;
-    left: -5px; /* Sedikit keluar dari gambar */
-    width: 3px;
-    animation: draw-left 1s ease-out forwards;
-    animation-delay: 3s; /* Mulai setelah bottom */
+
+/* Judul Sub "Waktu dan Tempat" */
+.sub-title {
+    font-size: 1.8em;
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+    display: inline-block; /* Agar border pas di teks */
+    padding-bottom: 5px;
+    margin-bottom: 30px;
 }
+
+/* Kontainer untuk detail acara */
+.invitation-details {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto 40px auto;
+    background-color: rgba(255, 255, 255, 0.05); /* Latar transparan */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.detail-item {
+    margin-bottom: 20px;
+}
+
+.detail-item h3 {
+    color: #ffd700;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.detail-item p {
+    font-size: 1.1em;
+    margin: 5px 0 0 0;
+}
+
+/* Paragraf penutup */
+.closing-paragraph {
+    font-size: 1em;
+    font-style: italic;
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto 40px auto; /* Jarak bawah */
+}
+
+/* HAPUS SEMUA STYLE LAMA INI (JIKA MASIH ADA): */
+/* .invitation-content-wrapper, #mainImage, .frame-border, .frame-line */
