@@ -1,39 +1,63 @@
 window.addEventListener('DOMContentLoaded', () => {
-
-    // Ambil elemen-elemen yang dibutuhkan
     const cover = document.getElementById('cover');
     const invitation = document.getElementById('invitation');
     const openButton = document.getElementById('openButton');
     const backgroundMusic = document.getElementById('backgroundMusic');
     const guestNameElement = document.getElementById('guestName');
 
-    // --- 1. LOGIKA NAMA KUSTOM ---
+    // --- LOGIKA NAMA KUSTOM ---
     const urlParams = new URLSearchParams(window.location.search);
     const guestName = urlParams.get('to');
-
     if (guestName) {
         guestNameElement.textContent = guestName.replace(/_/g, ' ');
     }
-    
-    // --- 2. LOGIKA TOMBOL BUKA UNDANGAN ---
+
+    // --- FUNGSI ANIMASI BUNGA ---
+    function createFlowerAnimation(containerSelector, numberOfFlowers = 7) {
+        const container = document.querySelector(containerSelector);
+        if (!container) return;
+
+        for (let i = 0; i < numberOfFlowers; i++) {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            
+            // Opsional: Jika bunga_latar.png tidak ada, gunakan fallback CSS
+            // flower.classList.add('fallback'); 
+
+            // Posisi acak awal
+            const startLeft = Math.random() * 100; // 0-100%
+            const startTop = Math.random() * 100;  // 0-100%
+            const size = Math.random() * (120 - 60) + 60; // Ukuran 60px - 120px
+            const delay = Math.random() * 10; // Delay animasi 0-10 detik
+
+            flower.style.width = `${size}px`;
+            flower.style.height = `${size}px`;
+            flower.style.left = `${startLeft}vw`;
+            flower.style.top = `${startTop}vh`;
+            flower.style.animationDelay = `${delay}s`;
+            
+            container.appendChild(flower);
+        }
+    }
+
+    // --- LOGIKA TOMBOL BUKA UNDANGAN ---
     openButton.addEventListener('click', () => {
-        // Sembunyikan layar cover
         cover.style.display = 'none';
-        
-        // Tampilkan layar undangan (yang baru)
-        invitation.style.display = 'block'; // Ubah ke 'block'
-        
-        // Putar musik
+        invitation.style.display = 'block';
+
         backgroundMusic.play().catch(error => {
             console.log("Autoplay dicegah oleh browser:", error);
         });
 
-        // Meminta mode fullscreen
         document.documentElement.requestFullscreen().catch(err => {
             console.log(`Gagal fullscreen: ${err.message}`);
         });
+
+        // Hapus bunga dari cover dan buat di undangan setelah terbuka
+        document.querySelector('#cover .flower-animation-container').innerHTML = '';
+        createFlowerAnimation('#invitation .flower-animation-container', 10); // Lebih banyak bunga di layar utama
     });
-    
-    // TIDAK PERLU ADA FUNGSI adjustFrameToImage LAGI
-    // TIDAK PERLU ADA window.addEventListener('resize') LAGI
+
+    // Buat bunga di cover saat halaman dimuat
+    createFlowerAnimation('#cover .flower-animation-container', 7);
 });
