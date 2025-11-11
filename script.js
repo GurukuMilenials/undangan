@@ -70,7 +70,6 @@ window.addEventListener('DOMContentLoaded', () => {
         createFloatingFlowerAnimation('#invitation .flower-animation-container', 10); 
         
         createBorderFlowerAnimation('.header-flower-container', 2);
-        createBorderFlowerAnimation('.footer-flower-container', 2);
     });
 
     createFloatingFlowerAnimation('#cover .flower-animation-container', 7);
