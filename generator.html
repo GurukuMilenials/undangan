@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Link Undangan</title>
+    <link rel="stylesheet" href="generator.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Generator Link Undangan</h2>
+        
+        <div class="input-group">
+            <label for="baseUrl">Base URL Website Anda:</label>
+            <input type="text" id="baseUrl" value="https://undangan-tahlil.vercel.app" placeholder="Contoh: https://website-anda.vercel.app">
+        </div>
+
+        <div class="input-group">
+            <label for="guestNameInput">Nama Tamu:</label>
+            <input type="text" id="guestNameInput" placeholder="Contoh: Bapak Arip & Keluarga">
+        </div>
+
+        <button id="generateBtn">Buat Link</button>
+
+        <div class="output-group">
+            <label for="resultUrl">Link Siap Sebar:</label>
+            <textarea id="resultUrl" rows="3" readonly></textarea>
+            <button id="copyBtn">Salin Link</button>
+            <span id="copyStatus"></span>
+        </div>
+    </div>
+    <script src="generator.js"></script>
+</body>
+</html>
