@@ -113,25 +113,6 @@ body, html {
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
 }
 
-.invitation-type-header {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2em;
-    color: var(--color-primary);
-    margin-bottom: 25px;
-    position: relative;
-    padding-bottom: 10px;
-}
-.invitation-type-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 2px;
-    background-color: var(--color-primary);
-}
-
 .arabic.bismillah {
     font-family: 'Scheherazade New', serif;
     font-size: 2.8em;
@@ -280,7 +261,7 @@ body, html {
     100% { opacity: 1; transform: translateX(0%) translateY(0); }
 }
 
-.header-flower-container, .footer-flower-container {
+.header-flower-container {
     position: absolute;
     width: 100%;
     height: 100px;
@@ -297,13 +278,7 @@ body, html {
     padding: 10px 20px;
 }
 
-.footer-flower-container {
-    bottom: 0;
-    padding: 10px 20px;
-    transform: rotate(180deg);
-}
-
-.header-flower-item, .footer-flower-item {
+.header-flower-item {
     background-image: url('bunga_latar.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -321,13 +296,33 @@ body, html {
     animation-delay: 0.8s;
 }
 
-.footer-flower-item:nth-child(1) {
-    animation: slideInFlower 2s ease-out forwards;
-    animation-delay: 1.0s;
+.islamic-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
 }
-.footer-flower-item:nth-child(2) {
-    animation: slideInFlowerRight 2s ease-out forwards;
-    animation-delay: 1.3s;
+
+.mosque-svg {
+    width: 100%;
+    height: 100%;
+    color: var(--color-primary);
+    opacity: 0.3;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: slideUpFooter 2s ease-out 1s forwards;
+}
+
+@keyframes slideUpFooter {
+    0% { opacity: 0; transform: translateY(100%); }
+    100% { opacity: 0.3; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
@@ -340,11 +335,11 @@ body, html {
     .scroll-container { padding: 30px 15px; }
     .haul-card img { width: 120px; height: 120px; }
 
-    .header-flower-container, .footer-flower-container {
+    .header-flower-container {
         height: 70px;
         padding: 5px 10px;
     }
-    .header-flower-item, .footer-flower-item {
+    .header-flower-item {
         width: 50px;
         height: 50px;
     }
@@ -360,5 +355,4 @@ body, html {
     .detail-item h3 { font-size: 1.1em; }
     .detail-item p { font-size: 1em; }
     .intro-paragraph, .closing-paragraph { font-size: 0.95em; }
-    .invitation-type-header { font-size: 1em; }
 }
