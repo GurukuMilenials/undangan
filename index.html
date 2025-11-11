@@ -5,69 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Tahlil Haul</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;400&family=Scheherazade+New:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="cover" class="layar">
-        <div class="icon-container">
-            <svg class="envelope-icon" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <div id="cover" class="layar cover-bg">
+        <div class="flower-animation-container"></div>
+
+        <div class="icon-container animate__fadeInDown">
+            <svg class="envelope-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
         </div>
-        <div class="konten-cover">
-            <p>Kepada Yth.</p>
-            <h2 id="guestName">Bapak/Ibu/Saudara/i</h2>
-            <p>Kami mengundang Anda di acara kami.</p>
-            <button id="openButton">Buka Undangan</button>
+        <div class="konten-cover animate__fadeInUp">
+            <p class="to-text">Kepada Yth.</p>
+            <h2 id="guestName" class="guest-name">Bapak/Ibu/Saudara/i</h2>
+            <p class="invite-text">Dengan hormat mengundang Anda ke acara kami.</p>
+            <button id="openButton" class="open-button">Buka Undangan</button>
         </div>
     </div>
 
-    <div id="invitation" class="layar" style="display: none;">
+    <div id="invitation" class="layar invitation-bg" style="display: none;">
+        <div class="flower-animation-container"></div>
+
         <div class="scroll-container">
+            <p class="arabic bismillah animate__fadeIn">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
             
-            <p class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+            <h1 class="main-title animate__fadeIn">UNDANGAN TAHLIL & YASIN</h1>
             
-            <h1 class="main-title">UNDANGAN YASIN & TAHLIL</h1> [cite: 3, 8]
-            
-            <p class="intro-paragraph">Dengan memohon rahmat dan ridho Allah Swt, kami mengharapkan kehadiran Bapak/Saudara pada acara Tahlil Haul Orang Tua dan Kakak kami:</p> [cite: 12]
+            <p class="intro-paragraph animate__fadeIn">Dengan memohon rahmat dan ridho Allah SWT, kami mengharapkan kehadiran Bapak/Ibu/Saudara pada acara Tahlil Haul Orang Tua dan Kakak kami:</p>
 
             <div class="haul-container">
-                <div class="haul-card">
-                    <img src="web_alm_babeh.jpg" alt="Alm. Mursalin HT"> <h3>Haul ke 2</h3> [cite: 4]
-                    <p>Mursalin HT bin H. Djainusih</p> [cite: 5]
+                <div class="haul-card animate__fadeInLeft">
+                    <img src="webbabeh.png" alt="Alm. H. Mursalin HT">
+                    <h3>Haul ke 2</h3>
+                    <p>Almarhum H. Mursalin HT<br>bin H. Djainusih</p>
                 </div>
-                <div class="haul-card">
-                    <img src="foto_almarhumah.jpg" alt="Almh. Neneng Mulyanah">
-                    <h3>Haul ke 16</h3> [cite: 9]
-                    <p>Neneng Mulyanah binti Mursalin HT</p> [cite: 9]
+                <div class="haul-card animate__fadeInRight">
+                    <img src="webkak.png" alt="Almh. Hj. Neneng Mulyanah">
+                    <h3>Haul ke 16</h3>
+                    <p>Almarhumah Hj. Neneng Mulyanah<br>binti Mursalin HT</p>
                 </div>
             </div>
 
-            <h2 class="sub-title">WAKTU DAN TEMPAT</h2> [cite: 11]
+            <h2 class="sub-title animate__fadeIn">WAKTU & TEMPAT ACARA</h2>
 
-            <div class="invitation-details">
+            <div class="invitation-details animate__fadeInUp">
                 <div class="detail-item">
                     <h3>Tanggal</h3>
-                    <p>Sabtu, 29 November 2025</p> [cite: 14]
+                    <p>Sabtu, 29 November 2025</p>
                 </div>
                 <div class="detail-item">
                     <h3>Waktu</h3>
-                    <p>Ba'da Isya</p> [cite: 15]
-                </div>
-                <div class="detail-item">
-                    <h3>Tempat</h3>
-                    <p>Jl. H. Saikin RT 012 RW 008 No. 44</p> [cite: 16]
+                    <p>Ba'da Isya</p>
                 </div>
                 <div class="detail-item">
                     <h3>Penceramah</h3>
-                    <p>Ust. Muhamad Firdaus MA</p> [cite: 13]
+                    <p>Ust. Muhamad Firdaus MA</p>
+                </div>
+                <div class="detail-item">
+                    <h3>Tempat</h3>
+                    <p>Jl. H. Saikin RT 012 RW 008 No. 44</p>
+                    <a href="https://maps.app.goo.gl/YourGoogleMapsLinkHere" target="_blank" class="maps-button">Lihat di Google Maps</a>
                 </div>
             </div>
 
-            <p class="closing-paragraph">Merupakan suatu kehormatan bagi kami, jika bapak dapat berkenan memanjatkan doa bagi Almarhum. Atas kehadiran bapak saya ucapkan Terima Kasih.</p> [cite: 17]
-
+            <p class="closing-paragraph animate__fadeInUp">Merupakan suatu kehormatan bagi kami, jika Bapak/Ibu/Saudara dapat berkenan memanjatkan doa bagi Almarhum/Almarhumah. Atas kehadiran Anda, kami ucapkan jazakumullah khairan katsiran.</p>
         </div>
     </div>
 
