@@ -1,5 +1,5 @@
 :root {
-    --color-primary: #ffd700;
+    --color-primary: #4CAF50;
     --color-secondary: #0a0a0a;
     --color-text-light: #f0f0f0;
     --color-text-dark: #333333;
@@ -60,7 +60,7 @@ body, html {
 }
 
 .flower.fallback {
-    background: radial-gradient(circle at center, #fff 0%, #ffd700 20%, rgba(255,215,0,0) 70%);
+    background: radial-gradient(circle at center, #fff 0%, var(--color-primary) 20%, rgba(76,175,80,0) 70%);
     border-radius: 50%;
     filter: blur(5px);
 }
@@ -91,7 +91,7 @@ body, html {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 .open-button:hover {
-    background-color: #e6c200;
+    background-color: #45a049;
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
@@ -261,7 +261,7 @@ body, html {
     100% { opacity: 1; transform: translateX(0%) translateY(0); }
 }
 
-.header-flower-container {
+.header-flower-container, .footer-flower-container {
     position: absolute;
     width: 100%;
     height: 100px;
@@ -278,7 +278,13 @@ body, html {
     padding: 10px 20px;
 }
 
-.header-flower-item {
+.footer-flower-container {
+    bottom: 0;
+    padding: 10px 20px;
+    transform: rotate(180deg);
+}
+
+.header-flower-item, .footer-flower-item {
     background-image: url('bunga_latar.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -296,33 +302,13 @@ body, html {
     animation-delay: 0.8s;
 }
 
-.islamic-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 0;
+.footer-flower-item:nth-child(1) {
+    animation: slideInFlower 2s ease-out forwards;
+    animation-delay: 1.0s;
 }
-
-.mosque-svg {
-    width: 100%;
-    height: 100%;
-    color: var(--color-primary);
-    opacity: 0.3;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    transform: translateY(100%);
-    animation: slideUpFooter 2s ease-out 1s forwards;
-}
-
-@keyframes slideUpFooter {
-    0% { opacity: 0; transform: translateY(100%); }
-    100% { opacity: 0.3; transform: translateY(0); }
+.footer-flower-item:nth-child(2) {
+    animation: slideInFlowerRight 2s ease-out forwards;
+    animation-delay: 1.3s;
 }
 
 @media (max-width: 768px) {
@@ -335,11 +321,11 @@ body, html {
     .scroll-container { padding: 30px 15px; }
     .haul-card img { width: 120px; height: 120px; }
 
-    .header-flower-container {
+    .header-flower-container, .footer-flower-container {
         height: 70px;
         padding: 5px 10px;
     }
-    .header-flower-item {
+    .header-flower-item, .footer-flower-item {
         width: 50px;
         height: 50px;
     }
